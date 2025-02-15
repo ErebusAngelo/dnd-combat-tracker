@@ -61,7 +61,7 @@ export function CharacterCard({
           : character.type === "enemy"
             ? "border-red-500"
             : "border-white"
-      } bg-[#1a2634] p-4 flex flex-col min-h-[500px]`}
+      } bg-[#1a2634] p-4 flex flex-col min-h-[500px] ${isActive ? "ring-2 ring-[#ffd700]" : ""}`}
     >
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
@@ -240,7 +240,7 @@ export function CharacterCard({
             placeholder="Añadir acción..."
             onKeyPress={(e) => {
               if (e.key === "Enter") {
-                onAddToLog(character.id, e.currentTarget.value)
+                onAddToLog(character.id, `[Ronda ${round}] ${e.currentTarget.value}`)
                 e.currentTarget.value = ""
               }
             }}
@@ -258,4 +258,6 @@ export function CharacterCard({
     </Card>
   )
 }
+
+
 
